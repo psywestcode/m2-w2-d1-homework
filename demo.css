@@ -1,51 +1,81 @@
+
+
 header {
-    background: url(images/central_park.jpg) 0 -200px no-repeat;  /* place image as background */
-    background-size: 1500px;
-    /*background-position: 0 -200px;*/
-    /*background-repeat: no-repeat;*/
-    height: 400px; /* give header some height to display the background image */
-    padding-top: 100px;
-    padding-left: 100px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+  /* Instructions Requirement 2: Header background image responsive */
+  /* Changed fixed background-size (1500px) to 'cover' so it scales */
+  /* Changed position to center to keep the image focused */
+  background: url(images/central_park.jpg) no-repeat center center;
+  background-size: cover; 
+  
+  height: 400px;
+  padding-top: 100px;
+  padding-left: 100px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff; /* Ensure text is white as per your HTML inline style */
+}
+
+li {
+  list-style-type: none;
+  display: inline;
+  padding: 0 20px;
+}
+
+li a { text-decoration: none; }
+li a:link { color: #000; }
+li a:visited { color:#818db3; }
+li a:hover { color:#333; }
+li a:active { color:#753a30; }
+
+nav {
+  background-color: rgb(255, 245, 238);
+  height: 50px;
+  text-align: center;
+  padding-top: 2px;
+}
+
+main {
+  margin: 50px;
+}
+
+main h1 {
+  color: rgb(129, 141, 179);
+  font-family: arial;
+}
+
+footer {
+  height: 40px;
+  background-color: rgb(129, 141, 179);
+  text-align: center;
+  padding-top: 20px;
+  color: rgb(211, 218, 240);
+}
+
+/* --- NEW RESPONSIVE STYLES --- */
+
+/* Instructions Requirement 1c: The image responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Removes extra space below image */
+}
+
+/* Instructions Requirement 1a: Main area will stack at less than 600px */
+.cards {
+  display: flex;
+  flex-direction: column; /* Default mobile view is stacked */
+  gap: 20px; /* Adds space between the stacked cards */
+}
+
+/* Instructions Requirement 1b: Display 2 columns at 600px or higher */
+@media (min-width: 600px) {
+  .cards {
+    flex-direction: row; /* Switch to row layout */
+    align-items: center; /* Aligns items vertically in the center */
   }
-  li {
-    list-style-type: none;
-    display: inline;
-    padding: 0 20px;
+  
+  .card {
+    flex: 1; /* Each card takes up equal width (50%) */
+    padding: 10px;
   }
-  li a {
-    text-decoration: none; /* Remove Underline */
-  }
-  li a:link {
-    color: #000; /* Before Click */
-  }
-  li a:visited {
-    color:#818db3; /* After Click */
-  }
-  li a:hover {
-    color:#333; /* Mouse Over */
-  }
-  li a:active {
-    color:#753a30; /* Mouse Down */
-  }
-  nav {
-    background-color:rgb(255, 245, 238);
-    height: 50px;
-    text-align: center;
-    padding-top: 2px;
-  }
-  main {
-    margin: 50px;
-  }
-  main h1 {
-    color:rgb(129, 141, 179);
-    font-family: arial;
-  }
-  footer {
-    height: 40px;
-    background-color:rgb(129, 141, 179);
-    text-align: center;
-    padding-top: 20px;
-    color:rgb(211, 218, 240);
-  }
+}
